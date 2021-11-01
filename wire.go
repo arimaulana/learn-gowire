@@ -1,8 +1,11 @@
+//go:build wireinject
+// +build wireinject
+
 package main
 
+import "github.com/google/wire"
+
 func InitializeEvent() Event {
-	message := NewMessage()
-	greeter := NewGreeter(message)
-	event := NewEvent(greeter)
-	return event
+	wire.Build(NewEvent, NewGreeter, NewMessage)
+	return Event{}
 }
