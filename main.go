@@ -49,6 +49,13 @@ func (e Event) Start() {
 	fmt.Println(msg)
 }
 
+// NewEventNumber try adding this to wire.Build in wire.go file,
+// you'll see error when run `wire` command
+// and deleting it from wire.Build resolves the error
+func NewEventNumber() int {
+	return 1
+}
+
 func main() {
 	e, err := InitializeEvent("Hi there!")
 	if err != nil {
